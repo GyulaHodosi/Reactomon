@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 function PokemonDetail(props) {
   const { id } = props.match.params;
@@ -7,8 +8,8 @@ function PokemonDetail(props) {
 
   async function fetchPokemon() {
     console.log(id);
-    const response = await fetch("https://pokeapi.co/api/v2/pokemon/" + id);
-    const data = await response.json();
+    const response = await axios("https://pokeapi.co/api/v2/pokemon/" + id);
+    const data = await response.data;
     setPokemon(data);
     setIsLoaded(true);
   }

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { NavLink } from "react-router-dom";
+import Card from "../styled_components/Card";
 
 function Pokemon(props) {
   const { name, url } = props.pokemon;
@@ -8,8 +10,8 @@ function Pokemon(props) {
   const [isLoaded, setIsLoaded] = useState(false);
 
   async function fetchPokemon() {
-    const response = await fetch(url);
-    const data = await response.json();
+    const response = await axios.get(url);
+    const data = await response.data;
     setId(data.id);
     setImage(data.sprites.front_default);
     setIsLoaded(true);
@@ -26,14 +28,18 @@ function Pokemon(props) {
       </div>
     );
   } else {
+    const capitalizedName = name.charAt(0).toUpperCase() + name.slice(1);
     return (
-      <div key={id}>
-        <h2>
-          {id}. {name}
-        </h2>
-        <img src={image} alt={name} />
-        <NavLink to={"/pokemons/" + id}>Details</NavLink>
-      </div>
+      <NavLink className="nav-link" to={"/pokemons/" + id}>
+        <Card>
+          <div key={id} className="poke-card-container">
+            <h2 className="poke-name">
+              {capitalizedName} #{id}
+            </h2>
+            <img className="poke-img" src={image} alt={name} />
+          </div>
+        </Card>
+      </NavLink>
     );
   }
 }
