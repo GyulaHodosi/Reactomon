@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+import Grid from "../styled_components/Grid";
+import TypeCard from "../styled_components/TypeCard";
+import Type from "./Type";
 
 function TypeList() {
   const [types, setTypes] = useState([]);
@@ -22,7 +25,19 @@ function TypeList() {
       </div>
     );
   } else {
-    return types.results.map((type) => <li>{type.name}</li>);
+    return (
+      <div className="type-grid-container">
+        <Grid className="type-grid">
+          {types.results.map((type) => {
+            return (
+              <div key={type.name} className="type-container">
+                <Type type={type.name} />
+              </div>
+            );
+          })}
+        </Grid>
+      </div>
+    );
   }
 }
 
