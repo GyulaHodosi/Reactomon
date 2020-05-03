@@ -31,14 +31,14 @@ function Pokemon(props) {
     const capitalizedName = name.charAt(0).toUpperCase() + name.slice(1);
     return (
       <NavLink className="nav-link" to={"/pokemons/" + id}>
-        <Card>
-          <div key={id} className="poke-card-container">
+        <div key={id} className="poke-card-container">
+          <Card className="poke-card">
             <h2 className="poke-name">
               {capitalizedName} #{id}
             </h2>
             <img className="poke-img" src={image} alt={name} />
-          </div>
-        </Card>
+          </Card>
+        </div>
       </NavLink>
     );
   }
