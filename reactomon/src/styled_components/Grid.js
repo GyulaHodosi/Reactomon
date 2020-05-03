@@ -5,7 +5,7 @@ const Grid = styled.div`
   margin: 0px;
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 15px;
-  padding-top: 70px;
+  padding-top: 100px;
 `;
 
 /*const Row = styled.div`

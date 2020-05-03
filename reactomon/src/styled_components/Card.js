@@ -11,11 +11,14 @@ const Card = styled.div`
   text-align: center;
   height: 300px;
   width: 300px;
+  color: #ac7339;
+  &:hover {
+    color: #ff1a1a;
+  }
 
   .poke-name {
     font-family: "Lucida Console", Charcoal, sans-serif;
     padding-top: 0%;
-    color: #ac7339;
     -webkit-text-stroke: 2px;
     text-decoration: none;
   }
