@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Pokemon from "./Pokemon";
+import Grid from "../styled_components/Grid";
 
 function PokemonDetail(props) {
   const { id } = props.match.params;
@@ -25,11 +27,16 @@ function PokemonDetail(props) {
       </div>
     );
   } else {
+    const poke = {
+      name: pokemon.name,
+      url: "https://pokeapi.co/api/v2/pokemon/" + id,
+    };
+    console.log(pokemon);
     return (
       <div>
-        <p>ID: {pokemon.id}</p>
-        <p>Name: {pokemon.name}</p>
-        <p>Weight: {pokemon.weight}</p>
+        <Grid>
+          <Pokemon pokemon={poke} />
+        </Grid>
       </div>
     );
   }
