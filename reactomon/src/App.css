@@ -25,6 +25,10 @@ nav {
   text-decoration: none;
 }
 
+.nav-link:hover {
+  color: #ff1a1a;
+}
+
 .nav-links {
   width: 40%;
   display: flex;
@@ -42,6 +46,10 @@ nav {
   -moz-animation: spin 4s linear infinite;
   animation: spin 4s linear infinite;
   float: left;
+}
+
+.button-container {
+  margin-left: 32%;
 }
 
 @-moz-keyframes spin {
