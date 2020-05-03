@@ -6,6 +6,7 @@ import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import PokemonDetail from "./components/PokemonDetail";
+import TypeDetail from "./components/TypeDetail";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route exact path="/pokemons" component={PokemonList} />
           <Route exact path="/types" component={TypeList} />
           <Route path="/pokemons/:id" component={PokemonDetail} />
+          <Route path="/types/:name" component={TypeDetail} />
         </Switch>
       </div>
     </Router>
